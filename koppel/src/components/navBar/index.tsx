@@ -24,11 +24,13 @@ const NavBar: React.FC = () => {
                 <div className="flex items-center">
                     <div className="ml-8 w-40 h-16">
                         <figure className="items-center">
-                            <img
-                                className="w-40 mt-1 cursor-pointer"
-                                src={Logo} 
-                                title="Ir a la pagina principal de coppel.com"
-                            />
+                            <Link to={'/'}>
+                                <img
+                                    className="w-40 mt-1 cursor-pointer"
+                                    src={Logo} 
+                                    title="Ir a la pagina principal de coppel.com"
+                                />
+                            </Link>
                         </figure>
                     </div>
                     <div className="relative flex ml-7 w-125 overflow-hidden">

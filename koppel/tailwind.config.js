@@ -15,6 +15,7 @@ module.exports = {
         'custom-base': '#f1f4fa'
       },
       width: {
+        '85':'22rem',
         '125': '30rem',
         '128': '32rem',  // Ejemplo: ancho adicional de 128 (32rem)
         '144': '36rem',  // Ejemplo: ancho adicional de 144 (36rem)
