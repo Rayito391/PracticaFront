@@ -83,7 +83,11 @@ const MapComponent: React.FC = () => {
     }
 
     return (
-        <MapContainer center={position} zoom={15} className="h-full w-full mt-6 rounded-r-lg" whenCreated={(map: L.Map) => { mapRef.current = map }}>
+        <MapContainer 
+            center={position} 
+            zoom={15} 
+            className="h-full w-full mt-6 rounded-r-lg" 
+            ref={(map) => { if (map) mapRef.current = map }}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
