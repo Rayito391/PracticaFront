@@ -22,9 +22,11 @@ module.exports = {
         '125': '30rem',
         '128': '32rem',  // Ejemplo: ancho adicional de 128 (32rem)
         '144': '36rem',  // Ejemplo: ancho adicional de 144 (36rem)
+        '250':'68rem',
       },
       height:{
         '18':'4.5rem',
+        '120':'35rem',
         '150':'40rem',
         '160':'45rem',
       },

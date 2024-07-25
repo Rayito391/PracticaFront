@@ -87,7 +87,7 @@ const NavBar: React.FC = () => {
                     </div>
                 </div>
             </header>
-            <nav className="flex justify-between bg-white w-full top-0 py-4 cursor-pointer">
+            <nav className="flex justify-between bg-white w-full top-0 py-3 cursor-pointer">
                 <ul className="flex ml-6">
                     <li className="flex items-end text-base mx-2 font-bold">
                         Departamentos
