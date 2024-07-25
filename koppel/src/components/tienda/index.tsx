@@ -64,7 +64,7 @@ const Tienda: React.FC = () => {
             <div className="flex justify-between rounded-lg h-160">
                 {/* left section */}
                 <div className=" flex flex-col w-1/3 h-full">
-                    <div className="relative bg-white mt-6 h-28 rounded-l-lg">
+                    <div className="relative bg-white mt-6 h-28 rounded-ss-lg">
                         <input 
                             type="search"
                             placeholder="Ingrese la ciudad o codigo postal"
@@ -73,13 +73,13 @@ const Tienda: React.FC = () => {
                                 <Icon icon="carbon:search" className="text-custom-blue-ligth w-6 h-6"/>
                                 <Icon icon="ph:microphone-bold" className="text-custom-blue-ligth w-6 h-6"/>
                             </div>
-                        <div className="w-85 mx-3 border-b-2 border-gray-400"></div>
+                        <div className="w-85 mx-4 border-b-2 border-gray-400"></div>
                         <p className="float-end mr-4 my-2 text-custom-blue-ligth cursor-pointer text-sm hover:text-opacity-80 underline">
                             Buscar por nombre de la tienda
                         </p>
                     </div>
                     {/* ubiCards */}
-                    <div className=" bg-white flex flex-col h-full rounded-l-lg ">
+                    <div className=" bg-white flex flex-col h-full rounded-b-lg ">
                         <UbiCard/>
                     </div>
                 </div>

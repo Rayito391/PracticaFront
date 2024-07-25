@@ -4,8 +4,8 @@ import { Icon } from '@iconify/react';
 
 const UbiCard: React.FC = () =>{
     return(
-        <div className="flex justify-between h-56 border-b">
-            <div className="flex flex-col m-3">
+        <div className="flex justify-between h-56 border-b mt-2">
+            <div className="flex flex-col m-4">
                 <div className="relative border-r">
                     <span className="text-custom-blue-ligth underline text-xl">
                         Coppel Canada La Primavera
