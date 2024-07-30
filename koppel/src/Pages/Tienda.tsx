@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Icon } from '@iconify/react';
 import arrowDownIcon from '@iconify/icons-ep/arrow-down'; // Importa el ícono de Arrow Down
 
-import TiendaComponent from '../../components/tienda'
-import UbiFooter from "../../components/UbiFooter";
+import TiendaComponent from '../components/Tienda'
+import UbiFooter from "../components/UbiFooter";
 
 function Tienda() {
     const [isOpenKoppel, setIsOpenKoppel] = useState(true);
@@ -23,6 +23,10 @@ function Tienda() {
             behavior: 'smooth' // Desplazamiento suave
         });
     };
+    
+    useEffect(() => {
+        document.title = 'Encuentra tu tienda Koppel mas cercana'
+    },[]);
 
     return (
     <>

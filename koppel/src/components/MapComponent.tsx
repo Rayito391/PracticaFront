@@ -42,7 +42,7 @@ const MapComponent: React.FC = () => {
             setPosition([latitude, longitude]);
 
             // Consultar Nominatim API para buscar tiendas cercanas
-            const query = 'Coppel tienda'; // Puedes ajustar esto para más flexibilidad
+            const query = 'coppel culiacán'; // Puedes ajustar esto para más flexibilidad
             fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&addressdetails=1&limit=20&lat=${latitude}&lon=${longitude}`)
                 .then(response => response.json())
                 .then((data: NominatimResponse[]) => {
@@ -85,7 +85,7 @@ const MapComponent: React.FC = () => {
     return (
         <MapContainer 
             center={position} 
-            zoom={15} 
+            zoom={12} 
             className="h-full w-full mt-6 rounded-r-lg" 
             ref={(map) => { if (map) mapRef.current = map }}>
             <TileLayer

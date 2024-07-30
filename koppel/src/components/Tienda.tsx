@@ -4,8 +4,8 @@ import { Icon } from '@iconify/react';
 
 
 //Components
-import UbiCard from '../UbiCard'
-import MapComponent from '../MapComponent/MapComponent'
+import UbiCard from './UbiCard'
+import MapComponent from './MapComponent'
 import { useState } from 'react';
 
 interface Button {

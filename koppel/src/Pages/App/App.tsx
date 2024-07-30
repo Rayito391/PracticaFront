@@ -2,11 +2,11 @@ import React from "react"
 import { BrowserRouter as Router,Route,Routes } from "react-router-dom";
 
 //components
-import NavBar from "../../components/navBar/NavBar";
+import NavBar from "../../components/NavBar";
 import Tienda from "../Tienda"
 import Home from "../Home"
+import Pedido from "../Pedido"
 
-const Pedido: React.FC = () => <div>Sigue tus pedidos</div>;
 const Ayuda: React.FC = () => <div>Ayuda</div>;
 
 function App() {

@@ -5,15 +5,18 @@ import arrowRightIcon from '@iconify/icons-ep/arrow-right';
 import arrowDownIcon from '@iconify/icons-ep/arrow-down';
 import arrowUpIcon from '@iconify/icons-ep/arrow-up';
 
-import Carrousel from "../../components/photoCarrousel/PhotoCarrousel";
-import DepartmentCard from '../../components/DepartmentCard';
-import Footer from '../../components/Footer';
-import ProductCard from '../../components/ProductCard';
-import useProducts from '../../hooks/useProducts';
-import MarkBar from '../../components/MarkBar';
-import BenefitBar from '../../components/BenefitBar';
+import Carrousel from "../components/PhotoCarrousel";
+import DepartmentCard from '../components/DepartmentCard';
+import Footer from '../components/Footer';
+import ProductCard from '../components/ProductCard';
+import useProducts from '../hooks/useProducts';
+import MarkBar from '../components/MarkBar';
+import BenefitBar from '../components/BenefitBar';
 
 const Home: React.FC = () => {
+    useEffect(() => {
+        document.title = 'Koppel.com - Koppel mejora tu vida'
+    },[]);
     const { products } = useProducts();
 
     const images = [
