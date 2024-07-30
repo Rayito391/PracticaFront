@@ -1,9 +1,9 @@
+// Define los tipos para los datos de las tiendas
 export interface Store {
-    id: number;
     name: string;
+    type: string;
     address: string;
-    distance: string;
-    isOpen: boolean;
-    closingTime: string;
-    position: [number, number];
+    hours: string;
+    id: number; // Añadido para que sea único
+    position: [number, number]; // Añadido para el mapa
 }
