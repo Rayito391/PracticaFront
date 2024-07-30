@@ -10,6 +10,8 @@ import DepartmentCard from '../../components/DepartmentCard';
 import Footer from '../../components/Footer';
 import ProductCard from '../../components/ProductCard';
 import useProducts from '../../hooks/useProducts';
+import MarkBar from '../../components/MarkBar';
+import BenefitBar from '../../components/BenefitBar';
 
 const Home: React.FC = () => {
     const { products } = useProducts();
@@ -168,22 +170,45 @@ const Home: React.FC = () => {
                         ))}
                     </div>
                     {showPrevious && (
-                        <button
+                        <div>
+                            <div className="absolute -left-5 top-1/2 transform -translate-y-1/2 border border-custom-blue-ligth w-14 h-14 bg-white text-white p-2 rounded-full shadow-lg 10"></div>
+                            <button
                             onClick={handlePrevious}
                             className="absolute -left-5 top-1/2 transform -translate-y-1/2 border border-custom-blue-ligth w-14 h-14 bg-white text-white p-2 rounded-full shadow-lg hover:bg-custom-blue-ligth hover:bg-opacity-10"
-                        >
-                            <Icon icon={arrowLeftIcon} className='text-custom-blue-ligth w-7 h-7' />
-                        </button>
+                            >
+                                <Icon icon={arrowLeftIcon} className='mx-auto text-custom-blue-ligth w-7 h-7' />
+                            </button>
+                        </div>
                     )}
                     {showNext && (
-                        <button
+                        <div>
+                            <div className="absolute right-5 top-1/2 transform -translate-y-1/2 border border-custom-blue-ligth w-14 h-14 bg-white text-white p-2 rounded-full shadow-lg "></div>
+                            <button
                             onClick={handleNext}
                             className="absolute right-5 top-1/2 transform -translate-y-1/2 border border-custom-blue-ligth w-14 h-14 bg-white text-white p-2 rounded-full shadow-lg hover:bg-custom-blue-ligth hover:bg-opacity-10"
-                        >
-                            <Icon icon={arrowRightIcon} className='text-custom-blue-ligth mx-auto w-7 h-7' />
-                        </button>
+                            >
+                                <Icon icon={arrowRightIcon} className='text-custom-blue-ligth mx-auto w-7 h-7' />
+                            </button>
+                        </div>
                     )}
                 </div>
+            </div>
+            <div className="w-4/5 mx-auto relative ">
+                <div className="mx-5 mb-5">
+                    <p className="font-semibold text-3xl mb-3">Encuentra aquí las mejores marcas</p>
+                </div>
+                <div className="mx-5">
+                    <MarkBar/>
+                </div>
+                <div className="mx-5 pt-2 pb-12 text-custom-blue-ligth font-bold">
+                    <div className="flex float-end mb-5 cursor-pointer hover:underline">
+                        Descubre todas las marcas
+                        <Icon icon={arrowRightIcon} className='text-custom-blue-ligth my-auto w-5 h-5' />
+                    </div>
+                </div>
+            </div>
+            <div className="w-4/5 h-56 mx-auto relative">
+                    <BenefitBar/>
             </div>
             <Footer/>
         </>
