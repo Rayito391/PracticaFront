@@ -44,9 +44,13 @@ const Carrousel: React.FC<CarouselProps> = ({ images }) => {
                     />
                 ))}
             </div>
+            <div className="absolute left-2 top-1/2 border border-custom-blue-ligth w-14 h-14 transform -translate-y-1/2 bg-white text-white p-2 rounded-full shadow-lg ">
+            </div>
             <button onClick={prevSlide} className="absolute left-2 top-1/2 border border-custom-blue-ligth w-14 h-14 transform -translate-y-1/2 bg-white text-white p-2 rounded-full shadow-lg hover:bg-custom-blue-ligth hover:bg-opacity-10">
                 <Icon icon="iconamoon:arrow-left-2-light" className='text-custom-blue-ligth w-7 h-7 ml-1' />
             </button>
+            <div className="absolute right-2 top-1/2 border border-custom-blue-ligth w-14 h-14 transform -translate-y-1/2 bg-white text-white p-2 rounded-full shadow-lg">
+            </div>
             <button onClick={nextSlide} className="absolute right-2 top-1/2 border border-custom-blue-ligth w-14 h-14 transform -translate-y-1/2 bg-white text-white p-2 rounded-full shadow-lg hover:bg-custom-blue-ligth hover:bg-opacity-10">
                 <Icon icon="iconamoon:arrow-right-2-light" className='text-custom-blue-ligth w-7 h-7 ml-1' />
             </button>

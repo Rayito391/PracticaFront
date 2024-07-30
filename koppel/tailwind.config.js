@@ -18,6 +18,8 @@ module.exports = {
         'custom-dark-blue-x2':'#192c39'
       },
       width: {
+        '18':'4.5rem',
+        '42':'10.5rem',
         '85':'22rem',
         '125': '30rem',
         '128': '32rem',  // Ejemplo: ancho adicional de 128 (32rem)
