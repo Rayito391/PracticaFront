@@ -28,5 +28,9 @@
     "esModuleInterop": true, // Asegúrate de que esto está habilitado
     "allowSyntheticDefaultImports": true // Asegúrate de que esto está habilitado
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "vite-env.d.ts"
+  ]
 }
