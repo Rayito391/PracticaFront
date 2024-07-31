@@ -6,7 +6,7 @@ interface CarouselProps {
 }
 
 const Carrousel: React.FC<CarouselProps> = ({ images }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
 
     const prevSlide = useCallback(() => {
         const newIndex = (currentIndex - 1 + images.length) % images.length;

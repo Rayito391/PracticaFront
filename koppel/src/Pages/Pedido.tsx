@@ -1,11 +1,13 @@
-import { useEffect } from "react";
+/* eslint-disable react/react-in-jsx-scope */
 import { Icon } from '@iconify/react';
+//components
 import OrderForm from '../components/OrderForm';
 import Footer from '../components/Footer';
+
+//hooks
+import useDocumentTitle from "../hooks/useDocumentTitle";
 function Pedido() {
-    useEffect(() => {
-        document.title = 'Sigue tus pedidos en linea al instante'
-    },[]);
+    useDocumentTitle('Sigue tus pedidos en linea al instante');
     return(
         <>
             <div className="flex flex-col mx-auto">
@@ -37,7 +39,7 @@ function Pedido() {
                                 <p>Tus datos están 100% seguros y encriptados</p>
                             </li>
                             <li className="flex">
-                                <img src="https://cdn2.coppel.com/wcsstore/AuroraStorefrontAssetStore/emarketing/homepage/footer/Secure.svg" alt="" />
+                                <img src="https://cdn2.coppel.com/wcsstore/AuroraStorefrontAssetStore/emarketing/homepage/footer/Secure.svg" alt="SecureLogo" />
                             </li>
                         </ul>
                     </div>                                        

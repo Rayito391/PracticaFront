@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { Icon } from '@iconify/react';
 import arrowRightIcon from '@iconify/icons-ep/arrow-right';
 

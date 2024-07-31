@@ -1,32 +1,24 @@
-import { useState,useEffect } from "react";
+/* eslint-disable react/react-in-jsx-scope */
+import { useState } from "react";
 import { Icon } from '@iconify/react';
 import arrowDownIcon from '@iconify/icons-ep/arrow-down'; // Importa el ícono de Arrow Down
+import { scrollToTop } from "../utils/scrollUtils";
 
+//components
 import TiendaComponent from '../components/Tienda'
 import UbiFooter from "../components/UbiFooter";
 
+//hooks
+import useDocumentTitle from "../hooks/useDocumentTitle";
+
 function Tienda() {
-    const [isOpenKoppel, setIsOpenKoppel] = useState(true);
-    const [isOpenEstados, setIsOpenEstados] = useState(true);
+    useDocumentTitle('Encuentra tu tienda Koppel mas cercana');
 
-    const toggleSectionKoppel = () => {
-        setIsOpenKoppel(!isOpenKoppel);
-    };
+    const [isOpenKoppel, setIsOpenKoppel] = useState<boolean>(true);
+    const [isOpenEstados, setIsOpenEstados] = useState<boolean>(true);
 
-    const toggleSectionEstados = () => {
-        setIsOpenEstados(!isOpenEstados);
-    };
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // Desplazamiento suave
-        });
-    };
-    
-    useEffect(() => {
-        document.title = 'Encuentra tu tienda Koppel mas cercana'
-    },[]);
+    const toggleSectionKoppel = () => setIsOpenKoppel(prev => !prev);
+    const toggleSectionEstados = () => setIsOpenEstados(prev => !prev);
 
     return (
     <>

@@ -5,66 +5,70 @@ import arrowRightIcon from '@iconify/icons-ep/arrow-right';
 import arrowDownIcon from '@iconify/icons-ep/arrow-down';
 import arrowUpIcon from '@iconify/icons-ep/arrow-up';
 
+//components
 import Carrousel from "../components/PhotoCarrousel";
 import DepartmentCard from '../components/DepartmentCard';
 import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
-import useProducts from '../hooks/useProducts';
 import MarkBar from '../components/MarkBar';
 import BenefitBar from '../components/BenefitBar';
 
-const Home: React.FC = () => {
-    useEffect(() => {
-        document.title = 'Koppel.com - Koppel mejora tu vida'
-    },[]);
-    const { products } = useProducts();
+//hooks
+import useDocumentTitle from "../hooks/useDocumentTitle";
+import useProducts from '../hooks/useProducts';
 
-    const images = [
-        'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider1_desktop_motos_2.jpg?iresize=width:900,height:450',
-        'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider2_desktop_sandalias.jpg?iresize=width:900,height:450',
-        'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider4_desktop_Colchones_A.jpg?iresize=width:900,height:450',
-        'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider3_desktop_hombre.jpg?iresize=width:900,height:450',
-        'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider5_desktop_mochilas.jpg?iresize=width:900,height:450',
-        'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider6_desktop_HP.jpg?iresize=width:900,height:450',
-    ];
+//consts
+const images = [
+    'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider1_desktop_motos_2.jpg?iresize=width:900,height:450',
+    'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider2_desktop_sandalias.jpg?iresize=width:900,height:450',
+    'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider4_desktop_Colchones_A.jpg?iresize=width:900,height:450',
+    'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider3_desktop_hombre.jpg?iresize=width:900,height:450',
+    'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider5_desktop_mochilas.jpg?iresize=width:900,height:450',
+    'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider6_desktop_HP.jpg?iresize=width:900,height:450',
+];
 
-    interface Department {
-        name: string;
-        icon: string;
-        discount: string;
-    }
+interface Department {
+    name: string;
+    icon: string;
+    discount: string;
+}
 
-    const departments: Department[] = [
-        { name: 'Hogar y Muebles', icon: 'ri:armchair-line', discount: '40%' },
-        { name: 'Línea Blanca', icon: 'icon-park-outline:washing-machine-one', discount: '45%' },
-        { name: 'Zapatos', icon: 'hugeicons:running-shoes', discount: '50%' },
-        { name: 'Electrónica', icon: 'cil:tv', discount: '55%' },
-        { name: 'Celulares', icon: 'mdi:cellphone', discount: '35%' },
-        { name: 'Mujeres', icon: 'ion:woman-outline', discount: '40%' },
-        { name: 'Hombres', icon: 'ion:man-outline', discount: '40%' },
-        { name: 'Motos y Movilidad', icon: 'mdi:racing-helmet', discount: '15%' },
-        { name: 'Deportes', icon: 'material-symbols-light:sports-baseball-outline', discount: '50%' },
-        { name: 'Electrodomésticos', icon: 'hugeicons:blender', discount: '46%' },
-        { name: 'Consolas y Videojuegos', icon: 'solar:gamepad-linear', discount: '20%' },
-        { name: 'Cuidado Personal', icon: 'solar:perfume-linear', discount: '40%' },
-        { name: 'Juguetes', icon: 'mingcute:toy-horse-line', discount: '50%' },
-        { name: 'Niños y Adolescentes', icon: 'healthicons:young-people', discount: '50%' },
-        { name: 'Relojes, Lentes y Joyería', icon: 'mynaui:watch', discount: '40%' },
-        { name: 'Bebés', icon: 'ic:outline-stroller', discount: '30%' },
-        { name: 'Ferretería', icon: 'ion:hammer-outline', discount: '30%' },
-        { name: 'Automotriz', icon: 'mdi:car-sports', discount: '60%' },
-        { name: 'Maletas, Bolsos y Mochilas', icon: 'fa6-solid:suitcase-rolling', discount: '65%' },
-        { name: 'Mascotas', icon: 'icons8:cat-footprint', discount: '60%' },
-        { name: 'Salud y Bienestar', icon: 'solar:hand-heart-outline', discount: '30%' },
-        { name: 'Instrumentos Musicales', icon: 'ph:guitar-light', discount: '35%' },
-    ];
-
-    const [expanded, setExpanded] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [showPrevious, setShowPrevious] = useState(false);
-    const [showNext, setShowNext] = useState(true);
+const departments: Department[] = [
+    { name: 'Hogar y Muebles', icon: 'ri:armchair-line', discount: '40%' },
+    { name: 'Línea Blanca', icon: 'icon-park-outline:washing-machine-one', discount: '45%' },
+    { name: 'Zapatos', icon: 'hugeicons:running-shoes', discount: '50%' },
+    { name: 'Electrónica', icon: 'cil:tv', discount: '55%' },
+    { name: 'Celulares', icon: 'mdi:cellphone', discount: '35%' },
+    { name: 'Mujeres', icon: 'ion:woman-outline', discount: '40%' },
+    { name: 'Hombres', icon: 'ion:man-outline', discount: '40%' },
+    { name: 'Motos y Movilidad', icon: 'mdi:racing-helmet', discount: '15%' },
+    { name: 'Deportes', icon: 'material-symbols-light:sports-baseball-outline', discount: '50%' },
+    { name: 'Electrodomésticos', icon: 'hugeicons:blender', discount: '46%' },
+    { name: 'Consolas y Videojuegos', icon: 'solar:gamepad-linear', discount: '20%' },
+    { name: 'Cuidado Personal', icon: 'solar:perfume-linear', discount: '40%' },
+    { name: 'Juguetes', icon: 'mingcute:toy-horse-line', discount: '50%' },
+    { name: 'Niños y Adolescentes', icon: 'healthicons:young-people', discount: '50%' },
+    { name: 'Relojes, Lentes y Joyería', icon: 'mynaui:watch', discount: '40%' },
+    { name: 'Bebés', icon: 'ic:outline-stroller', discount: '30%' },
+    { name: 'Ferretería', icon: 'ion:hammer-outline', discount: '30%' },
+    { name: 'Automotriz', icon: 'mdi:car-sports', discount: '60%' },
+    { name: 'Maletas, Bolsos y Mochilas', icon: 'fa6-solid:suitcase-rolling', discount: '65%' },
+    { name: 'Mascotas', icon: 'icons8:cat-footprint', discount: '60%' },
+    { name: 'Salud y Bienestar', icon: 'solar:hand-heart-outline', discount: '30%' },
+    { name: 'Instrumentos Musicales', icon: 'ph:guitar-light', discount: '35%' },
+];
 
     const ITEMS_PER_PAGE = 6;
+
+const Home: React.FC = () => {
+    useDocumentTitle('Koppel.com - Koppel mejora tu vida');
+    
+    const [expanded, setExpanded] = useState<boolean>(false);
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [showPrevious, setShowPrevious] = useState<boolean>(false);
+    const [showNext, setShowNext] = useState<boolean>(true);
+
+    const { products } = useProducts();
     const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
 
     useEffect(() => {
@@ -98,10 +102,10 @@ const Home: React.FC = () => {
                 </div>
                 <div className="flex flex-col w-85 mx-auto mb-16">
                     <div className="flex items-center overflow-hidden w-auto h-2/4 cursor-pointer">
-                        <img className="rounded-xl mb-5" src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/D1.jpg?i10c=img.resize(width:350)?iresize=width:535,height:400" alt="" />
+                        <img className="rounded-xl mb-5" src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/D1.jpg?i10c=img.resize(width:350)?iresize=width:535,height:400" alt="homepage image" />
                     </div>
                     <div className="flex items-center overflow-hidden w-auto h-1/2 pb-2 cursor-pointer">
-                        <img className="rounded-xl" src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/D2.jpg?i10c=img.resize(width:350)?iresize=width:535,height:400" alt="" />
+                        <img className="rounded-xl" src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/D2.jpg?i10c=img.resize(width:350)?iresize=width:535,height:400" alt="homepage image2" />
                     </div>
                 </div>
             </div>
@@ -134,25 +138,25 @@ const Home: React.FC = () => {
             <div className="mx-auto w-4/5">
                 <div className="p-5 w-full">
                     <figure className="h-32 rounded-xl overflow-hidden cursor-pointer">
-                        <img className="" src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/BannerMedio_S31_desktop.jpg?i10c=img.resize(width:350)?iresize=width:1140,height:98" alt="" />
+                        <img className="" src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/BannerMedio_S31_desktop.jpg?i10c=img.resize(width:350)?iresize=width:1140,height:98" alt="homepage image3" />
                     </figure>
                 </div>
             </div>
             <div className="flex mx-auto w-4/5">
                 <div className="m-5 flex w-4/6">
                     <figure className=" rounded-xl overflow-hidden">
-                        <img src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B3.jpg?i10c=img.resize(width:450)?iresize=width:1535,height:792" alt="" />
+                        <img src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B3.jpg?i10c=img.resize(width:450)?iresize=width:1535,height:792" alt="homepage image4" />
                     </figure>
                 </div>
                 <div className="flex flex-col m-5 w-2/6">
                     <div className="h-2/5 mb-12">
                         <figure className="rounded-xl overflow-hidden">
-                            <img src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B4.jpg?i10c=img.resize(width:450)?iresize=width:746,height:372" alt="" />
+                            <img src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B4.jpg?i10c=img.resize(width:450)?iresize=width:746,height:372" alt="homepage image5" />
                         </figure>
                     </div>
                     <div className="h-2/5">
                         <figure className="rounded-xl overflow-hidden">
-                            <img src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B5.jpg?i10c=img.resize(width:450)?iresize=width:746,height:372" alt="" />
+                            <img src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B5.jpg?i10c=img.resize(width:450)?iresize=width:746,height:372" alt="homepage image6" />
                         </figure>
                     </div>
                 </div>

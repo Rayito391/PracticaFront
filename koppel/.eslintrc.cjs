@@ -1,14 +1,15 @@
 /** @type {import('eslint').Linter.Config} */
-module.exports = {
+export const exports = {
   root: true,
   env: {
     browser: true,
     es2020: true,
-    node: true, // Agrega esta línea
+    node: true, 
   },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
     'plugin:react-hooks/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
@@ -19,5 +20,11 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'react/react-in-jsx-scope': 'off', 
   },
+  settings: {
+    react: {
+        version: 'detect',
+    },
+},
 };

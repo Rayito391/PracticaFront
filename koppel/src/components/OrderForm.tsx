@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Icon } from '@iconify/react';
 
 const OrderForm: React.FC = () => {
-  const [trackingNumber, setTrackingNumber] = useState('');
-  const [isValid, setIsValid] = useState(false);
+  const [trackingNumber, setTrackingNumber] = useState<string>('');
+  const [isValid, setIsValid] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
