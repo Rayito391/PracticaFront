@@ -10,6 +10,10 @@ interface NavItem {
     path: string;
 }
 
+interface NavBarProps {
+    showNavBar: boolean;
+}
+
 // Define the nav items
 const navItems: NavItem[] = [
     {label:'Ubica tu tienda', path:'/tienda'},
@@ -17,7 +21,8 @@ const navItems: NavItem[] = [
     {label:'Ayuda', path:'/ayuda'},
 ]
 
-const NavBar: React.FC = () => {
+const NavBar: React.FC<NavBarProps> = ({showNavBar}) => {
+    if (!showNavBar) return null;
     return(
         <div>
             <header className="flex justify-between h-18 items-center bg-custom-yellow">

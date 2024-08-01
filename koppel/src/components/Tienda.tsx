@@ -32,6 +32,7 @@ const buttons: Button[] = [
 const Tienda: React.FC = () => {
     const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
     const [stores, setStores] = useState<Store[]>([]);
+    const [isSearchingByName, setIsSearchingByName] = useState<boolean>(false);
 
     const handleButtonClick = (id: number) => {
         if (selectedButtons.includes(id)) {
@@ -43,6 +44,8 @@ const Tienda: React.FC = () => {
 
     const handleStoresLoaded = (loadedStores: Store[]) => {
         setStores(loadedStores);
+    };
+    const toggleSearchMode = () => {setIsSearchingByName(!isSearchingByName);
     };
 
     return (
@@ -77,7 +80,7 @@ const Tienda: React.FC = () => {
                     <div className="relative bg-white mt-6 h-28 rounded-ss-lg">
                         <input 
                             type="search"
-                            placeholder="Ingrese la ciudad o código postal"
+                            placeholder={isSearchingByName ? "Ingrese nombre de tienda" : "Ingrese la ciudad o código postal"}
                             className="w-85 mx-4 mt-4 bg-custom-base bg-opacity-50 py-3 px-3 font-semibold text-opacity-90"
                         />
                         <div className="cursor-pointer absolute flex w-20 top-7 right-3 gap-4">
@@ -85,8 +88,8 @@ const Tienda: React.FC = () => {
                             <Icon icon="ph:microphone-bold" className="text-custom-blue-ligth w-6 h-6" />
                         </div>
                         <div className="w-85 mx-4 border-b-2 border-gray-400"></div>
-                        <p className="float-end mr-4 my-2 text-custom-blue-ligth cursor-pointer text-sm hover:text-opacity-80 underline">
-                            Buscar por nombre de la tienda
+                        <p onClick={toggleSearchMode} className="float-end mr-4 my-2 text-custom-blue-ligth cursor-pointer text-sm hover:text-opacity-80 underline">
+                            {isSearchingByName ? "Buscar por ciudad o código postal" : "Buscar por nombre de la tienda"}
                         </p>
                     </div>
                     <div className="bg-white flex flex-col h-full rounded-b-lg overflow-hidden overflow-y-scroll">

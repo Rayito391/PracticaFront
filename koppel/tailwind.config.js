@@ -18,6 +18,7 @@ export const theme = {
     },
     width: {
       '18': '4.5rem',
+      '30':'7.5rem',
       '42': '10.5rem',
       '85': '22rem',
       '125': '30rem',
