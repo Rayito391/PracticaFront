@@ -7,3 +7,4 @@ export interface Store {
     id: number; // Añadido para que sea único
     position: [number, number]; // Añadido para el mapa
 }
+

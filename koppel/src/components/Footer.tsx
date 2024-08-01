@@ -16,10 +16,10 @@ const Footer:React.FC = () =>{
                 <div className="flex items-center bg-custom-dark-blue-x2 ml-52">
                     <p className="font-base text-white text-xl">Compra Segura</p>
                     <figure className="w-20 h-8 bg-white ml-5 rounded-md">
-                        <img className="w-4/5 ml-2 mt-1" src="https://ekata.com/wp-content/uploads/2023/08/accertify.svg" alt="logoFooter" />
+                        <img className="w-4/5 ml-2 mt-1" src="https://ekata.com/wp-content/uploads/2023/08/accertify.svg" alt="Accertify" />
                     </figure>
                     <figure className="w-20 h-8 bg-white ml-2 rounded-md">
-                        <img className="w-4/5 ml-2 mt-1"  src="https://compusoftme.com/wp-content/uploads/2023/01/230-2308139_if-you-purchase-a-globalsign-ssl-certificate-youll.png" alt="logoFooter1" />
+                        <img className="w-4/5 ml-2 mt-1"  src="https://compusoftme.com/wp-content/uploads/2023/01/230-2308139_if-you-purchase-a-globalsign-ssl-certificate-youll.png" alt="Secure" />
                     </figure>
                 </div>
                 <div className="flex items-center gap-1  mr-72">

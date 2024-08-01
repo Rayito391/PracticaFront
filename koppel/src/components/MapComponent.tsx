@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-// URL del icono del marcador en base64
 const markerIconUrl = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgOCA4Ij48cGF0aCBmaWxsPSIjMDI2NmFlIiBkPSJNNCAwQzIuMzQgMCAxIDEuMzQgMSAzYzAgMiAzIDUgMyA1czMtMyAzLTVjMC0xLjY2LTEuMzQtMy0zLTNtMCAxYTIgMiAwIDAgMSAyIDJjMCAxLjExLS44OSAyLTIgMmEyIDIgMCAxIDEgMC00Ii8+PC9zdmc+';
 const customMarkerIcon = L.icon({
     iconUrl: markerIconUrl,
@@ -12,7 +11,6 @@ const customMarkerIcon = L.icon({
     popupAnchor: [0, -36]
 });
 
-// Define los tipos para los datos de las tiendas
 interface Store {
     id: number;
     name: string;
@@ -41,24 +39,15 @@ interface MapComponentProps {
     onStoresLoaded: (stores: Store[]) => void;
 }
 
-// Función para extraer el nombre y reemplazar 'Coppel' por 'Koppel'
 const formatStoreName = (displayName: string) => {
-    // Reemplaza 'Coppel' por 'Koppel'
     const formattedName = displayName.replace(/Coppel/i, 'Koppel');
-
-    // Obtiene la primera parte del nombre, eliminando 'Calle' si está presente
     const parts = formattedName.split(', ');
     let name = parts[0];
-
-    // Elimina la palabra 'Calle' al inicio del nombre si está presente
     if (name.startsWith('Calle ')) {
         name = name.replace('Calle ', '');
     }
-
     return name;
 };
-
-
 
 const MapComponent: React.FC<MapComponentProps> = ({ onStoresLoaded }) => {
     const [position, setPosition] = useState<[number, number] | null>(null);
@@ -71,29 +60,38 @@ const MapComponent: React.FC<MapComponentProps> = ({ onStoresLoaded }) => {
             setPosition([latitude, longitude]);
 
             const query = 'coppel culiacán';
-            fetch(`https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(query)}&format=json&addressdetails=1&limit=20&lat=${latitude}&lon=${longitude}`)
-                .then(response => response.json())
+            const url = `${import.meta.env.VITE_NOMINATIM_URL}?q=${encodeURIComponent(query)}&format=json&addressdetails=1&limit=20&lat=${latitude}&lon=${longitude}`;
+            console.log('Fetch URL:', url);
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then((data: NominatimResponse[]) => {
+                    console.log('API Response:', data);
                     const userState = data[0]?.address?.state || "";
                     const places: Store[] = data
                         .filter(place => place.address.state === userState)
                         .map((place) => ({
                             id: place.place_id,
-                            name: formatStoreName(place.display_name), // Usa la función para formatear el nombre
-                            type: 'Tiendas Koppel', // Ajustar si es necesario
+                            name: formatStoreName(place.display_name),
+                            type: 'Tiendas Koppel',
                             address: [
                                 place.address.road || '',
                                 place.address.suburb || '',
                                 place.address.city || '',
                                 place.address.state || '',
                                 place.address.country || ''
-                            ].filter(Boolean).join(', '), // Construye la dirección con los campos disponibles
-                            hours: '8:00', // Ajustar si es necesario
+                            ].filter(Boolean).join(', '),
+                            hours: '8:00',
                             position: [parseFloat(place.lat), parseFloat(place.lon)]
                         }));
 
                     setStores(places);
-                    onStoresLoaded(places); // Llama al callback para pasar los datos
+                    onStoresLoaded(places);
                 })
                 .catch(error => console.error('Error fetching data:', error));
         });
