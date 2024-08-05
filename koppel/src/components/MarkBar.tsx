@@ -1,4 +1,3 @@
-
 const MarkBar: React.FC = () => {
   return (
     <>
@@ -62,4 +61,3 @@ const MarkBar: React.FC = () => {
   );
 };
 export default MarkBar;
-

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import arrowDownIcon from "@iconify/icons-ep/arrow-down"; // Importa el ícono de Arrow Down
+import arrowDownIcon from "@iconify/icons-ep/arrow-down";
 import Logo from "../assets/images/logo.png";
 
 interface NavItem {

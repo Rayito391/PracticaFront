@@ -4,33 +4,34 @@ module.exports = {
   env: {
     browser: true,
     es2020: true,
-    node: true, 
+    node: true,
   },
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["react-refresh"],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
+    "react-refresh/only-export-components": [
+      "warn",
       { allowConstantExport: true },
     ],
-    'react/react-in-jsx-scope': 'off', 
+    "react/react-in-jsx-scope": "off",
     "prettier/prettier": [
-  "error",
-  {
-    endOfLine: "auto",
-  },
-],
+      "error",
+      {
+        endOfLine: "auto",
+        trailingComma: "es5",
+      },
+    ],
   },
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
 };
