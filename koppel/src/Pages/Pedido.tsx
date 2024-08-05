@@ -1,12 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { Icon } from '@iconify/react';
-//components
+
 import OrderForm from '../components/OrderForm';
 import Footer from '../components/Footer';
 
-//hooks
 import useDocumentTitle from "../hooks/useDocumentTitle";
-function Pedido() {
+const Pedido:React.FC = () =>{
     useDocumentTitle('Sigue tus pedidos en linea al instante');
     return(
         <>

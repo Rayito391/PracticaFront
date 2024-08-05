@@ -13,11 +13,9 @@ import ProductCard from '../components/ProductCard';
 import MarkBar from '../components/MarkBar';
 import BenefitBar from '../components/BenefitBar';
 
-//hooks
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import useProducts from '../hooks/useProducts';
 
-//consts
 const images = [
     'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider1_desktop_motos_2.jpg?iresize=width:900,height:450',
     'https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider2_desktop_sandalias.jpg?iresize=width:900,height:450',

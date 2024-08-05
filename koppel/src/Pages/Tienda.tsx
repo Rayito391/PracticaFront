@@ -1,17 +1,14 @@
-/* eslint-disable react/react-in-jsx-scope */
 import { useState } from "react";
 import { Icon } from '@iconify/react';
-import arrowDownIcon from '@iconify/icons-ep/arrow-down'; // Importa el ícono de Arrow Down
+import arrowDownIcon from '@iconify/icons-ep/arrow-down';
 import { scrollToTop } from "../utils/scrollUtils";
 
-//components
 import TiendaComponent from '../components/Tienda'
 import UbiFooter from "../components/UbiFooter";
 
-//hooks
 import useDocumentTitle from "../hooks/useDocumentTitle";
 
-function Tienda() {
+const Tienda:React.FC = () => {
     useDocumentTitle('Encuentra tu tienda Koppel mas cercana');
 
     const [isOpenKoppel, setIsOpenKoppel] = useState<boolean>(true);

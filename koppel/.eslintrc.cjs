@@ -1,5 +1,5 @@
 /** @type {import('eslint').Linter.Config} */
-export const exports = {
+module.exports = {
   root: true,
   env: {
     browser: true,
@@ -9,8 +9,8 @@ export const exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    "plugin:prettier/recommended",
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -21,10 +21,16 @@ export const exports = {
       { allowConstantExport: true },
     ],
     'react/react-in-jsx-scope': 'off', 
+    "prettier/prettier": [
+  "error",
+  {
+    endOfLine: "auto",
+  },
+],
   },
   settings: {
     react: {
-        version: 'detect',
+      version: 'detect',
     },
-},
+  },
 };
