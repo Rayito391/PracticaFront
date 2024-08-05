@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import arrowDownIcon from "@iconify/icons-ep/arrow-down"; // Importa el ícono de Arrow Down
@@ -14,8 +14,16 @@ const navItems: NavItem[] = [
   { label: "Sigue tus pedidos", path: "/pedidos" },
   { label: "Ayuda", path: "/ayuda" },
 ];
+// const departments = [
+//   { id: "home-furniture", label: "Hogar y Muebles", path: "/" },
+//   { id: "linea-blanca", label: "Linea Blanca", path: "/" },
+//   { id: "kitchen-appliances", label: "Cocina y Electrodomesticos", path: "/" },
+//   { id: "hardware", label: "Ferreteria y Mejoras del Hogar", path: "/" },
+// ];
 
 const NavBar: React.FC = () => {
+  const [isDepartmentsOpen, setIsDepartmentsOpen] = useState(false);
+
   return (
     <div>
       <header className="flex justify-between h-18 items-center bg-custom-yellow">
@@ -99,7 +107,12 @@ const NavBar: React.FC = () => {
       </header>
       <nav className="flex justify-between bg-white w-full top-0 py-3 cursor-pointer">
         <ul className="flex ml-6">
-          <li className="flex items-end text-base mx-2 font-bold">
+          <li
+            className="flex items-end text-base mx-2 font-bold"
+            onClick={() => {
+              setIsDepartmentsOpen(!isDepartmentsOpen);
+            }}
+          >
             Departamentos
             <Icon
               icon={arrowDownIcon}

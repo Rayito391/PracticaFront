@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import HelpNavBar from "../components/HelpNavBar";
 import Tienda from "./Tienda";
 import Home from "./Home";
 import Pedido from "./Pedido";
@@ -13,13 +14,11 @@ import Ayuda from "./Ayuda";
 
 const App: React.FC = () => {
   const location = useLocation();
-  const hideNavBarRoutes = ["/ayuda"];
-
-  const showNavBar = !hideNavBarRoutes.includes(location.pathname);
+  const isHelpPage = location.pathname === "/ayuda";
 
   return (
     <>
-      {showNavBar && <NavBar />}
+      {isHelpPage ? <HelpNavBar /> : <NavBar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tienda" element={<Tienda />} />
