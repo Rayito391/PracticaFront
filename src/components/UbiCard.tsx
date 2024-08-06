@@ -1,7 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 
-// Define el tipo para las props
 interface UbiCardProps {
   store: {
     name: string;
