@@ -5,6 +5,7 @@ import HelpNavBar from "../components/HelpNavBar";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import HelpCard from "../components/HelpCard";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 type ServiceType = {
   img: string;
@@ -92,7 +93,7 @@ const Ayuda: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-full bg-white border border-red-500 pb-28">
+      <div className="w-full h-full bg-white border pb-28">
         <div className="flex w-2/5 mt-36  pl-9 mx-auto h-auto space-x-6">
           {helpCardData.map((card, index) => (
             <HelpCard key={index} imageSource={card.img} textImg={card.text} />
@@ -105,7 +106,10 @@ const Ayuda: React.FC = () => {
             </p>
             <div className="flex space-x-12">
               {services.map((service, index) => (
-                <div key={index} className="ml-12">
+                <div
+                  key={index}
+                  className="ml-12 hover:underline text-custom-blue-ligth cursor-pointer"
+                >
                   <img
                     src={service.img}
                     alt={service.title}
@@ -119,6 +123,40 @@ const Ayuda: React.FC = () => {
             </div>
           </div>
         </div>
+        <div className="flex w-3/5 mt-16 mx-auto  justify-center ">
+          <div className=" ml-5">
+            <p className="flex text-center mb-7 text-2xl font-bold">
+              Lo mas buscado
+            </p>
+            <ul className="flex flex-col w-85 text-sm font-semibold underline text-custom-blue-ligth cursor-pointer">
+              <li className="border-b-2 pt-5 pb-3 hover:text-custom-yellow hover:underline">
+                ¿Cuáles son los medios de contacto oficiales de Coppel?
+              </li>
+              <li className="border-b-2 pt-5 pb-3 hover:text-custom-yellow hover:underline">
+                ¿Cómo puedo hacer valida mi garantía de motos?
+              </li>
+              <li className="border-b-2 pt-5 pb-3 hover:text-custom-yellow hover:underline">
+                ¿En cuanto tiempo llega mi pedido de Marketplace?
+              </li>
+              <li className="border-b-2 pt-5 pb-3 hover:text-custom-yellow hover:underline">
+                ¿Cómo sé si un producto es de un vendedor externo o de Coppel?
+              </li>
+              <li className="border-b-2 pt-5 pb-3 hover:text-custom-yellow hover:underline">
+                ¿Qué es Coppel Max?
+              </li>
+            </ul>
+          </div>
+          <div className="w-96 ml-5">
+            <img
+              className="w-full h-full"
+              src="https://centrodeayuda.coppel.com/file-asset/Girl_in_jacket?v=1"
+              alt="centroAyuda"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="-mt-14">
+        <Footer />
       </div>
     </div>
   );

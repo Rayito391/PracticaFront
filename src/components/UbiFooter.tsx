@@ -74,7 +74,7 @@ const UbiFooter: React.FC = () => {
             pago de cada cliente. Los quincenales contemplan: 24, 36, 48, 60 o
             72 quincenas para muebles y 24 quincenas para ropa. Los productos de
             Marketplace que lleves con tu crédito Coppel, cuentan con un plazo
-            de 24 quincenas y son financiados con Coppel play.
+            de 24 quincenas y son financiados con Coppel pay.
           </p>
         </div>
         <div className="text-white text-sm w-auto mx-auto mt-5">

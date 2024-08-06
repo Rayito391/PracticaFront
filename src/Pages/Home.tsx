@@ -14,6 +14,7 @@ import BenefitBar from "../components/BenefitBar";
 
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import useProducts from "../hooks/useProducts";
+import HomeCard, { homeCardProps } from "../components/HomeCard";
 
 const images = [
   "https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider1_desktop_motos_2.jpg?iresize=width:900,height:450",
@@ -77,6 +78,29 @@ const departments: Department[] = [
     discount: "30%",
   },
   { name: "Instrumentos Musicales", icon: "ph:guitar-light", discount: "35%" },
+];
+
+const homeCardData: Array<homeCardProps> = [
+  {
+    imgSource:
+      "https://cdn2.coppel.com/images/emarketing/homepage/2024/s32/desktop/B6.jpg?i10c=img.resize(width:350)",
+    imgAlt: "juguetes",
+  },
+  {
+    imgSource:
+      "https://cdn2.coppel.com/images/emarketing/homepage/2024/s32/desktop/B7.jpg?i10c=img.resize(width:450)",
+    imgAlt: "clientes",
+  },
+  {
+    imgSource:
+      "https://cdn2.coppel.com/images/emarketing/homepage/2024/s32/desktop/B8.jpg?i10c=img.resize(width:450)",
+    imgAlt: "pantallas",
+  },
+  {
+    imgSource:
+      "https://cdn2.coppel.com/images/emarketing/homepage/2024/s32/desktop/B9P.jpg?i10c=img.resize(width:350)",
+    imgAlt: "periodico",
+  },
 ];
 
 const ITEMS_PER_PAGE = 6;
@@ -184,8 +208,8 @@ const Home: React.FC = () => {
         </div>
       </div>
       <div className="flex mx-auto w-4/5">
-        <div className="m-5 flex w-4/6">
-          <figure className=" rounded-xl overflow-hidden">
+        <div className="m-5 flex w-4/6 h-2/3">
+          <figure className=" rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl">
             <img
               src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B3.jpg?i10c=img.resize(width:450)?iresize=width:1535,height:792"
               alt="homepage image4"
@@ -194,15 +218,15 @@ const Home: React.FC = () => {
         </div>
         <div className="flex flex-col m-5 w-2/6">
           <div className="h-2/5 mb-12">
-            <figure className="rounded-xl overflow-hidden">
+            <figure className="rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl">
               <img
-                src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B4.jpg?i10c=img.resize(width:450)?iresize=width:746,height:372"
+                src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s32/desktop/B4.jpg?i10c=img.resize(width:450)?iresize=width:746,height:372"
                 alt="homepage image5"
               />
             </figure>
           </div>
           <div className="h-2/5">
-            <figure className="rounded-xl overflow-hidden">
+            <figure className="rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl">
               <img
                 src="https://cdn2.coppel.com/images/emarketing/homepage/2024/s31/desktop/B5.jpg?i10c=img.resize(width:450)?iresize=width:746,height:372"
                 alt="homepage image6"
@@ -275,8 +299,17 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="w-4/5 h-56 mx-auto relative">
+      <div className="w-4/5 h-auto mx-auto relative">
         <BenefitBar />
+      </div>
+      <div className="w-4/5 h-auto mt-10 mx-auto flex ">
+        {homeCardData.map((data, index) => (
+          <HomeCard
+            key={index}
+            imgSource={data.imgSource}
+            imgAlt={data.imgAlt}
+          />
+        ))}
       </div>
       <Footer />
     </>
