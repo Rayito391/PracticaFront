@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// hooks/useProducts.ts
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 interface Product {
   id: number;
@@ -19,10 +17,10 @@ const useProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('https://fakestoreapi.com/products');
+        const response = await axios.get("https://fakestoreapi.com/products");
         setProducts(response.data);
       } catch (error) {
-        setError('Error fetching products');
+        setError("Error fetching products" + error);
       } finally {
         setLoading(false);
       }
