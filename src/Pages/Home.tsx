@@ -14,7 +14,7 @@ import BenefitBar from "../components/BenefitBar";
 
 import useDocumentTitle from "../hooks/useDocumentTitle";
 import useProducts from "../hooks/useProducts";
-import HomeCard, { homeCardProps } from "../components/HomeCard";
+import HomeCard, { HomeCardProps } from "../components/HomeCard";
 
 const images = [
   "https://cdn2.coppel.com/images/emarketing/sliders/2024/s31/desktop/s31_slider1_desktop_motos_2.jpg?iresize=width:900,height:450",
@@ -80,7 +80,7 @@ const departments: Department[] = [
   { name: "Instrumentos Musicales", icon: "ph:guitar-light", discount: "35%" },
 ];
 
-const homeCardData: Array<homeCardProps> = [
+const homeCardData: Array<HomeCardProps> = [
   {
     imgSource:
       "https://cdn2.coppel.com/images/emarketing/homepage/2024/s32/desktop/B6.jpg?i10c=img.resize(width:350)",

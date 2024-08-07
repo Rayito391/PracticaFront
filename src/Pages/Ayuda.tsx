@@ -150,7 +150,7 @@ const Ayuda: React.FC = () => {
             <img
               className="w-full h-full"
               src="https://centrodeayuda.coppel.com/file-asset/Girl_in_jacket?v=1"
-              alt="centroAyuda"
+              alt="Persona texteando con un telefono"
             />
           </div>
         </div>
