@@ -6,9 +6,7 @@ const Survey: React.FC = () => {
     <div>
       <button
         className="fixed w-32 h-9 top-2/4 -right-10 rotate-90 text-center rounded-b-md text-white bg-custom-blue-survey"
-        onClick={() => {
-          setIsModalOpen(true);
-        }}
+        onClick={() => setIsModalOpen(true)}
       >
         Encuesta
       </button>
@@ -22,4 +20,5 @@ const Survey: React.FC = () => {
     </div>
   );
 };
+
 export default Survey;

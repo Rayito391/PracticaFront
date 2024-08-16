@@ -3,11 +3,16 @@ import React, { useState } from "react";
 import RadioButton from "./RadioButton";
 
 const FormSurvey: React.FC = () => {
-  const [selectedValue, setSelectedValue] = useState<string>("");
+  const [selectedValue, setSelectedValue] = useState<
+    "Sí" | "No" | "Aún no termino"
+  >("Sí");
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
-  };
+  const options = [
+    { id: "optionYes", value: "Sí" },
+    { id: "optionNo", value: "No" },
+    { id: "optionNotYet", value: "Aún no termino" },
+  ];
+
   return (
     <div className="border w-110 h-155 p-6">
       <form className="-mt-4 px-1" action="">
@@ -38,33 +43,30 @@ const FormSurvey: React.FC = () => {
           ¿Cumpliste con tu motivo de visita?
         </p>
         <div className="flex space-x-2">
-          <RadioButton
-            id="optionYes"
-            name="options"
-            value="Sí"
-            checked={selectedValue === "Sí"}
-            onChange={handleChange}
-          />
-          <RadioButton
-            id="optionNo"
-            name="options"
-            value="No"
-            checked={selectedValue === "No"}
-            onChange={handleChange}
-          />
-          <RadioButton
-            id="optionNotYet"
-            name="options"
-            value="Aún no termino"
-            checked={selectedValue === "Aún no termino"}
-            onChange={handleChange}
-          />
+          {options.map((option) => (
+            <RadioButton
+              key={option.id}
+              id={option.id}
+              name="options"
+              value={option.value}
+              checked={selectedValue === option.value}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                setSelectedValue(
+                  event.target.value as "Sí" | "No" | "Aún no termino"
+                );
+              }}
+            />
+          ))}
         </div>
         <div className="mt-8  -ml-2 w-100 mx-auto">
           <p className="text-gray-500">
             La protección de tus datos personales es muy importante para Coppel,
             conoce nuestro aviso de privacidad dando clic
-            <span className="text-custom-blue-ligth"> aquí</span>.
+            <span className="text-custom-blue-ligth cursor-pointer underline">
+              {" "}
+              aquí
+            </span>
+            .
           </p>
         </div>
         <div className="flex justify-between mt-16">
@@ -83,4 +85,5 @@ const FormSurvey: React.FC = () => {
     </div>
   );
 };
+
 export default FormSurvey;

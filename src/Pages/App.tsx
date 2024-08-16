@@ -17,8 +17,13 @@ const App: React.FC = () => {
   const location = useLocation();
   const hideNavBarRoutes = ["/ayuda"];
   const showNavBar = !hideNavBarRoutes.includes(location.pathname);
-  const showOfferBanner = location.pathname === "/";
+  const [showOfferBanner, setShowOfferBanner] = React.useState(
+    location.pathname === "/"
+  );
 
+  React.useEffect(() => {
+    setShowOfferBanner(location.pathname === "/");
+  }, [location]);
   return (
     <>
       {showOfferBanner && <OfferBanner />}

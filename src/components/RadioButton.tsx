@@ -24,7 +24,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
         value={value}
         checked={checked}
         onChange={onChange}
-        className="mr-2 w-5 h-5 border"
+        className="mr-2 w-5 h-5 border cursor-pointer"
       />
       <label htmlFor={id} className="text-sm">
         {value}
