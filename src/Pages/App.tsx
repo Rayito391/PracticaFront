@@ -6,20 +6,24 @@ import {
   useLocation,
 } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import OfferBanner from "../components/OfferBanner";
 import Tienda from "./Tienda";
 import Home from "./Home";
 import Pedido from "./Pedido";
 import Ayuda from "./Ayuda";
+import Survey from "../components/Survey";
 
 const App: React.FC = () => {
   const location = useLocation();
   const hideNavBarRoutes = ["/ayuda"];
-
   const showNavBar = !hideNavBarRoutes.includes(location.pathname);
+  const showOfferBanner = location.pathname === "/";
 
   return (
     <>
+      {showOfferBanner && <OfferBanner />}
       {showNavBar && <NavBar />}
+      <Survey />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tienda" element={<Tienda />} />
