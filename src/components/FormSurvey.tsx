@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import RadioButton from "./RadioButton";
 
 const FormSurvey: React.FC = () => {
+
   const [selectedValue, setSelectedValue] = useState<
     "Sí" | "No" | "Aún no termino"
   >("Sí");
@@ -57,6 +58,7 @@ const FormSurvey: React.FC = () => {
               }}
             />
           ))}
+
         </div>
         <div className="mt-8  -ml-2 w-100 mx-auto">
           <p className="text-gray-500">

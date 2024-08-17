@@ -21,6 +21,7 @@ const App: React.FC = () => {
     location.pathname === "/"
   );
 
+
   React.useEffect(() => {
     setShowOfferBanner(location.pathname === "/");
   }, [location]);
